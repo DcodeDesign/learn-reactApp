@@ -79,7 +79,7 @@ function useAutoIncrement(init = 0, step = 1){
  * @param idElem
  * @returns {JSX.Element}
  */
-function App({idElem}) {
+function Tp1({idElem}) {
     const [compteurVisible, toggleCompteur] = useToggle(true,idElem);
     const count = useAutoIncrement(0, 2);
     return (
@@ -99,12 +99,12 @@ function App({idElem}) {
  */
 render(
     <>
-        <App idElem={"elementer"}/>
+        <Tp1 idElem={"elementer"}/>
         <hr />
-        <App idElem={"elementer2"}/>
+        <Tp1 idElem={"elementer2"}/>
         <hr />
-        <App idElem={"elementer3"}/>
+        <Tp1 idElem={"elementer3"}/>
         <hr />
     </>,
-    document.getElementById('root')
+    document.getElementById('tp-1')
 )
