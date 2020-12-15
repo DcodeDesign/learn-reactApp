@@ -1,0 +1,23 @@
+{
+  "name": "15-hook-useMemo-useCallback",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "babel-polyfill": "^6.26.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html --open",
+    "start2": "parcel index2.html --open"
+  },
+  "keywords": [],
+  "author": "",
+  "description": ""
+}
