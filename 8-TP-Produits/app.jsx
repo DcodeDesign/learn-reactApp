@@ -122,15 +122,15 @@ class FilterableProductTable extends React.Component {
             filterText: '',
             inStock: false
         }
-        this.handelFilterTextChange = this.handelFilterTextChange.bind(this);
-        this.handelFilterinStockChange = this.handelFilterinStockChange.bind(this)
+        this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+        this.handleFilterinStockChange = this.handleFilterinStockChange.bind(this)
     }
 
-    handelFilterTextChange(filterText) {
+    handleFilterTextChange(filterText) {
         this.setState({filterText})
     }
 
-    handelFilterinStockChange(inStock) {
+    handleFilterinStockChange(inStock) {
         this.setState({inStock})
     }
 
@@ -141,8 +141,8 @@ class FilterableProductTable extends React.Component {
                 <SearchBar
                     filterText={this.state.filterText}
                     inStock={this.state.inStock}
-                    onFilterTextChange={this.handelFilterTextChange}
-                    onFilterinStockChange={this.handelFilterinStockChange}
+                    onFilterTextChange={this.handleFilterTextChange}
+                    onFilterinStockChange={this.handleFilterinStockChange}
                 />
                 <ProductTable
                     products={products}
