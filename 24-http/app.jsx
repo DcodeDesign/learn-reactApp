@@ -2,6 +2,7 @@ import {render} from 'react-dom';
 import React, {Component} from 'react';
 import ListUser from "./ListUser/ListUser";
 import AddUser from "./AddUser/AddUser";
+import './conf/axios-conf';
 import axios from 'axios';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('/users')
             .then(response => {
                 const users = response.data;
                 this.setState({users});
@@ -26,6 +27,19 @@ class App extends Component {
         this.setState({users})
     }
 
+    selectUser = (index) => {
+        this.setState({
+            selectedUser: index
+        })
+    }
+
+    deleteUser = (id) => {
+        axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+            .then(response => {
+                this.props.adduser(response.data);
+            })
+    }
+
     render() {
         return (
             <div style={{minHeight: '100vh'}}
@@ -34,11 +48,9 @@ class App extends Component {
                     this.state.users[this.state.selectedUser] : null} adduser={this.handleAddUser}/>
                 <hr className={"w-100 my-5"}/>
                 <ListUser users={this.state.users}
-                          selectedUser={(index) => (
-                              this.setState({
-                                  selectedUser: index
-                              })
-                          )}
+                          selectedUser={this.selectUser}
+                          selected={this.state.users[this.state.selectedUser]}
+                          deleteUser={this.deleteUser}
                 />
             </div>
         );

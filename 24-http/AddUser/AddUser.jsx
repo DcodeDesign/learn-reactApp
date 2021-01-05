@@ -10,12 +10,12 @@ export default class extends Component {
 
     submit = (values, actions) => {
         if (!this.props.user) {
-            axios.post('https://jsonplaceholder.typicode.com/users', values)
+            axios.post('/users', values)
                 .then(response => {
                     this.props.adduser(response.data);
                 })
         } else {
-            axios.put(`https://jsonplaceholder.typicode.com/users/${values.id}`, values)
+            axios.put(`/users/${values.id}`, values)
                 .then(response => {
                     this.props.adduser(response.data);
                 })
