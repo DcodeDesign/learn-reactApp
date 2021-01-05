@@ -6,36 +6,26 @@ class ThrowBall extends React.Component {
         super(props);
         this.state = {
             nbrBall: 0,
-            start: false,
             result: 0
         }
-
     }
 
     handleNbrBall = () => {
         let elem = document.getElementById('nbrBall')
         let nbrBall = parseInt(elem.value)
-        if( nbrBall > 0){
+        if (nbrBall > 0) {
             this.setState({
-                start: true,
                 nbrBall
             })
-        } else if(nbrBall <= 0) {
+        } else if (nbrBall <= 0) {
             this.setState({
-                start: false,
                 nbrBall: 0
-            })
-        }else{
-            this.setState({
-                start: false,
-                nbrBall: nbrBall
             })
         }
     }
 
     handleThrowBall = () => {
         this.setState({
-            start: this.state.nbrBall - 1 !== 0 ,
             result: this.state.nbrBall <= 0 ? this.state.result : this.state.result + 1,
             nbrBall: this.state.nbrBall <= 0 ? 0 : this.state.nbrBall - 1
         })
@@ -43,7 +33,6 @@ class ThrowBall extends React.Component {
 
     handleRestart = () => {
         this.setState({
-            start: false ,
             result: 0,
             nbrBall: 0
         })
@@ -63,13 +52,19 @@ class ThrowBall extends React.Component {
                            onChange={this.handleNbrBall}
                     />
                 </div>
-                <button className={"btn btn-primary w-100"} onClick={this.handleThrowBall} disabled={!this.state.start} > Lancée une balle </button>
+                <button className={"btn btn-primary w-100"}
+                        onClick={this.handleThrowBall}
+                        disabled={!this.state.nbrBall}> Lancée une balle
+                </button>
                 <div>
                     <h3 className={"text-center mt-5"}> Balle(s) lancée(s): {this.state.result} </h3>
                 </div>
                 <div className="row">
                     <div className="col text-center mt-4">
-                        <button className={"btn btn-primary"} onClick={this.handleRestart} disabled={!this.state.result} > recommencer </button>
+                        <button className={"btn btn-primary"}
+                                onClick={this.handleRestart}
+                                disabled={!this.state.result}> recommencer
+                        </button>
                     </div>
                 </div>
             </>
@@ -79,7 +74,7 @@ class ThrowBall extends React.Component {
 
 render(
     <div className={"container mt-5"}>
-        <ThrowBall />
+        <ThrowBall/>
     </div>,
     document.getElementById('root')
 );
