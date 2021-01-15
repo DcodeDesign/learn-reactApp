@@ -6,8 +6,11 @@ export class Articles extends React.Component {
         return (
             <>
                 <div className={"container mt-3"}>
-                    <div className="card-columns">
-                        <Details />
+                    <div className="card-deck">
+                        {this.props.articles.map((a, index) => (
+                                <Details key={a.title + index} article={a}/>
+                            )
+                        )}
                     </div>
                 </div>
             </>
