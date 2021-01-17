@@ -38,7 +38,7 @@ const AppRouter = () => (
             <Switch>
                 <Route path="/user/:id" component={User} />
                 <Route path="/" render={() => <div><h3>Sélectionnez un utilisateur</h3></div>} />
-                <Redirect to="/"></Redirect>
+                <Redirect to="/" />
             </Switch>
             <ShowTheLocationWithRouter />
         </div>
