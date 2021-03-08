@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import style from './welcome.module.css'
+import style from './ex01welcome.module.css'
 
-const Welcome = (props) => {
+const Ex01welcome = (props) => {
     const {fname, lname} = props;
     return (
         <div>
@@ -11,14 +11,14 @@ const Welcome = (props) => {
     )
 }
 
-Welcome.defaultProps = {
+Ex01welcome.defaultProps = {
     fname: ''
 }
 
-Welcome.propTypes = {
+Ex01welcome.propTypes = {
     fname: PropTypes.string ,
     lname: PropTypes.string.isRequired
 }
 
-export default Welcome;
+export default Ex01welcome;
 
